@@ -17,7 +17,7 @@ class AstronautilusItemData(NamedTuple):
 
 
 collectable_item_data_table: Dict[str, AstronautilusItemData] = {
-    ItemName.strawberry: AstronautilusItemData(astronautilus_base_id + 0x0, ItemClassification.progression_skip_balancing),
+    ItemName.shop_item: AstronautilusItemData(astronautilus_base_id + 0x0, ItemClassification.progression_skip_balancing),
     ItemName.raspberry:  AstronautilusItemData(astronautilus_base_id + 0x9, ItemClassification.filler),
 }
 
