@@ -68,11 +68,11 @@ shop5_item_location_data_table: Dict[str, AstronautilusLocationData] = {
 }
 
 world_location_data_table: Dict[str, AstronautilusLocationData] = {
-    LocationName.world_1:  AstronautilusLocationData(RegionName.world_1,    astronautilus_base_id + 0x400 + 0x00),
-    LocationName.world_2:  AstronautilusLocationData(RegionName.world_2,    astronautilus_base_id + 0x400 + 0x01),
-    LocationName.world_3:  AstronautilusLocationData(RegionName.world_3,    astronautilus_base_id + 0x400 + 0x02),
-    LocationName.world_4:  AstronautilusLocationData(RegionName.world_4,    astronautilus_base_id + 0x400 + 0x03),
-    LocationName.world_5:  AstronautilusLocationData(RegionName.world_5,    astronautilus_base_id + 0x400 + 0x04),
+    LocationName.world_1:  AstronautilusLocationData(RegionName.world_1,    astronautilus_base_id + 0x100 + 0x00),
+    LocationName.world_2:  AstronautilusLocationData(RegionName.world_2,    astronautilus_base_id + 0x100 + 0x01),
+    LocationName.world_3:  AstronautilusLocationData(RegionName.world_3,    astronautilus_base_id + 0x100 + 0x02),
+    LocationName.world_4:  AstronautilusLocationData(RegionName.world_4,    astronautilus_base_id + 0x100 + 0x03),
+    LocationName.world_5:  AstronautilusLocationData(RegionName.world_5,    astronautilus_base_id + 0x100 + 0x04),
 }
 
 location_data_table: Dict[str, AstronautilusLocationData] = {**shop1_item_location_data_table,
