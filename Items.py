@@ -27,9 +27,6 @@ achievement_item_data_table: Dict[str, AstronautilusItemData] = {
     ItemName.shopdiscount3:         AstronautilusItemData(astronautilus_base_id + 0x3, ItemClassification.progression),
     ItemName.shopdiscount4:         AstronautilusItemData(astronautilus_base_id + 0x4, ItemClassification.progression),
     ItemName.shopdiscount5:         AstronautilusItemData(astronautilus_base_id + 0x5, ItemClassification.progression),
-    ItemName.traffic_block:      AstronautilusItemData(astronautilus_base_id + 0x6, ItemClassification.progression),
-    ItemName.spring:             AstronautilusItemData(astronautilus_base_id + 0x7, ItemClassification.progression),
-    ItemName.breakables:         AstronautilusItemData(astronautilus_base_id + 0x8, ItemClassification.progression),
 }
 
 move_item_data_table: Dict[str, AstronautilusItemData] = {

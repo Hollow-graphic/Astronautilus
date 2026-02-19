@@ -22,175 +22,52 @@ def set_rules(world: AstronautilusWorld):
     world.multiworld.completion_condition[world.player] = lambda state: goal_rule(state, world)
 
 
-location_standard_moves_logic: Dict[str, List[List[str]]] = {
-    LocationName.strawberry_1:  [[ItemName.ground_dash],
-                                 [ItemName.air_dash],
-                                 [ItemName.climb]],
-    LocationName.strawberry_2:  [[ItemName.air_dash],
-                                 [ItemName.skid_jump]],
-    LocationName.strawberry_3:  [[ItemName.air_dash],
-                                 [ItemName.skid_jump]],
-    LocationName.strawberry_4:  [[ItemName.traffic_block, ItemName.breakables, ItemName.air_dash]],
-    LocationName.strawberry_5:  [[ItemName.air_dash]],
-    LocationName.strawberry_9:  [[ItemName.dash_refill, ItemName.air_dash]],
-    LocationName.strawberry_10: [[ItemName.climb]],
-    LocationName.strawberry_11: [[ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_13: [[ItemName.breakables, ItemName.air_dash],
-                                 [ItemName.breakables, ItemName.ground_dash]],
-    LocationName.strawberry_14: [[ItemName.feather, ItemName.air_dash]],
-    LocationName.strawberry_15: [[ItemName.feather, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_16: [[ItemName.feather]],
-    LocationName.strawberry_17: [[ItemName.double_dash_refill, ItemName.feather, ItemName.traffic_block]],
-    LocationName.strawberry_18: [[ItemName.double_dash_refill, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_19: [[ItemName.double_dash_refill, ItemName.spring, ItemName.air_dash, ItemName.skid_jump]],
-    LocationName.strawberry_20: [[ItemName.feather, ItemName.breakables, ItemName.air_dash]],
+location_logic: Dict[str, List[List[str]]] = {
+    LocationName.shop1_item1: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item2: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item3: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item4: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item5: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item6: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item7: [[ItemName.shopdiscount1]],
+    LocationName.shop1_item8: [[ItemName.shopdiscount1]],
 
-    LocationName.strawberry_21: [[ItemName.cassette, ItemName.traffic_block, ItemName.breakables, ItemName.air_dash]],
-    LocationName.strawberry_22: [[ItemName.cassette, ItemName.dash_refill, ItemName.breakables, ItemName.air_dash]],
-    LocationName.strawberry_23: [[ItemName.cassette, ItemName.coin, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_24: [[ItemName.cassette, ItemName.dash_refill, ItemName.traffic_block, ItemName.air_dash]],
-    LocationName.strawberry_25: [[ItemName.cassette, ItemName.double_dash_refill, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_26: [[ItemName.cassette, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_27: [[ItemName.cassette, ItemName.feather, ItemName.coin, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_28: [[ItemName.cassette, ItemName.feather, ItemName.coin, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_29: [[ItemName.cassette, ItemName.dash_refill, ItemName.coin, ItemName.air_dash, ItemName.skid_jump]],
-    LocationName.strawberry_30: [[ItemName.cassette, ItemName.dash_refill, ItemName.double_dash_refill, ItemName.feather, ItemName.traffic_block, ItemName.spring, ItemName.breakables, ItemName.air_dash, ItemName.climb]],
+    LocationName.shop2_item1: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item2: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item3: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item4: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item5: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item6: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item7: [[ItemName.shopdiscount2]],
+    LocationName.shop2_item8: [[ItemName.shopdiscount2]],
 
-    LocationName.theo_1:     [[ItemName.traffic_block, ItemName.breakables, ItemName.air_dash]],
-    LocationName.theo_2:     [[ItemName.traffic_block, ItemName.breakables, ItemName.air_dash]],
-    LocationName.theo_3:     [[ItemName.traffic_block, ItemName.breakables, ItemName.air_dash]],
+    LocationName.shop3_item1: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item2: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item3: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item4: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item5: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item6: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item7: [[ItemName.shopdiscount3]],
+    LocationName.shop3_item8: [[ItemName.shopdiscount3]],
 
-    LocationName.sign_2: [[ItemName.breakables, ItemName.ground_dash],
-                          [ItemName.breakables, ItemName.air_dash]],
+    LocationName.shop4_item1: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item2: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item3: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item4: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item5: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item6: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item7: [[ItemName.shopdiscount4]],
+    LocationName.shop4_item8: [[ItemName.shopdiscount4]],
 
-    LocationName.car_2: [[ItemName.breakables, ItemName.ground_dash, ItemName.climb],
-                         [ItemName.breakables, ItemName.air_dash, ItemName.climb]],
+    LocationName.shop5_item1: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item2: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item3: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item4: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item5: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item6: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item7: [[ItemName.shopdiscount5]],
+    LocationName.shop5_item8: [[ItemName.shopdiscount5]],
 }
-
-location_hard_moves_logic: Dict[str, List[List[str]]] = {
-    LocationName.strawberry_5:  [[ItemName.ground_dash],
-                                 [ItemName.air_dash]],
-    LocationName.strawberry_10: [[ItemName.air_dash],
-                                 [ItemName.climb]],
-    LocationName.strawberry_11: [[ItemName.ground_dash],
-                                 [ItemName.air_dash],
-                                 [ItemName.skid_jump]],
-    LocationName.strawberry_13: [[ItemName.breakables, ItemName.ground_dash],
-                                 [ItemName.breakables, ItemName.air_dash]],
-    LocationName.strawberry_14: [[ItemName.feather, ItemName.air_dash],
-                                 [ItemName.air_dash, ItemName.climb],
-                                 [ItemName.double_dash_refill, ItemName.air_dash]],
-    LocationName.strawberry_15: [[ItemName.feather],
-                                 [ItemName.ground_dash, ItemName.air_dash]],
-    LocationName.strawberry_17: [[ItemName.double_dash_refill]],
-    LocationName.strawberry_18: [[ItemName.air_dash, ItemName.climb],
-                                 [ItemName.double_dash_refill, ItemName.air_dash]],
-    LocationName.strawberry_19: [[ItemName.air_dash]],
-    LocationName.strawberry_20: [[ItemName.breakables, ItemName.air_dash]],
-
-    LocationName.strawberry_21: [[ItemName.cassette, ItemName.traffic_block, ItemName.breakables, ItemName.air_dash]],
-    LocationName.strawberry_22: [[ItemName.cassette, ItemName.ground_dash, ItemName.air_dash],
-                                 [ItemName.cassette, ItemName.dash_refill, ItemName.air_dash]],
-    LocationName.strawberry_23: [[ItemName.cassette, ItemName.coin, ItemName.air_dash]],
-    LocationName.strawberry_24: [[ItemName.cassette, ItemName.ground_dash, ItemName.air_dash],
-                                 [ItemName.cassette, ItemName.traffic_block, ItemName.air_dash]],
-    LocationName.strawberry_25: [[ItemName.cassette, ItemName.double_dash_refill, ItemName.air_dash, ItemName.climb]],
-    LocationName.strawberry_26: [[ItemName.cassette, ItemName.ground_dash],
-                                 [ItemName.cassette, ItemName.air_dash]],
-    LocationName.strawberry_27: [[ItemName.cassette, ItemName.air_dash, ItemName.skid_jump],
-                                 [ItemName.cassette, ItemName.traffic_block, ItemName.coin, ItemName.air_dash],
-                                 [ItemName.cassette, ItemName.coin, ItemName.ground_dash],
-                                 [ItemName.cassette, ItemName.feather, ItemName.coin, ItemName.air_dash]],
-    LocationName.strawberry_28: [[ItemName.cassette, ItemName.feather, ItemName.air_dash],
-                                 [ItemName.cassette, ItemName.feather, ItemName.climb]],
-    LocationName.strawberry_29: [[ItemName.cassette, ItemName.dash_refill, ItemName.air_dash, ItemName.skid_jump],
-                                 [ItemName.cassette, ItemName.ground_dash, ItemName.air_dash]],
-    LocationName.strawberry_30: [[ItemName.cassette, ItemName.dash_refill, ItemName.double_dash_refill, ItemName.traffic_block, ItemName.breakables, ItemName.air_dash, ItemName.climb, ItemName.skid_jump],
-                                 [ItemName.cassette, ItemName.dash_refill, ItemName.double_dash_refill, ItemName.traffic_block, ItemName.breakables, ItemName.spring, ItemName.air_dash, ItemName.climb]],
-
-    LocationName.sign_2: [[ItemName.breakables, ItemName.ground_dash],
-                          [ItemName.breakables, ItemName.air_dash]],
-
-    LocationName.car_2: [[ItemName.breakables, ItemName.ground_dash],
-                         [ItemName.breakables, ItemName.air_dash]],
-}
-
-
-region_standard_moves_logic: Dict[Tuple[str], List[List[str]]] = {
-    (RegionName.forsaken_city, RegionName.granny_island):        [[ItemName.checkpoint_2], [ItemName.checkpoint_3], [ItemName.checkpoint_4]],
-    (RegionName.forsaken_city, RegionName.highway_island):       [[ItemName.checkpoint_5], [ItemName.checkpoint_6]],
-    (RegionName.forsaken_city, RegionName.ne_feathers_island):   [[ItemName.checkpoint_7]],
-    (RegionName.forsaken_city, RegionName.se_house_island):      [[ItemName.checkpoint_8]],
-    (RegionName.forsaken_city, RegionName.badeline_tower_upper): [[ItemName.checkpoint_9]],
-    (RegionName.forsaken_city, RegionName.badeline_island):      [[ItemName.checkpoint_10]],
-
-    (RegionName.intro_islands, RegionName.granny_island): [[ItemName.ground_dash],
-                                                           [ItemName.air_dash],
-                                                           [ItemName.skid_jump],
-                                                           [ItemName.climb]],
-
-    (RegionName.granny_island, RegionName.highway_island): [[ItemName.air_dash, ItemName.dash_refill]],
-    (RegionName.granny_island, RegionName.nw_girders_island): [[ItemName.traffic_block]],
-    (RegionName.granny_island, RegionName.badeline_tower_lower): [[ItemName.air_dash, ItemName.climb, ItemName.dash_refill]],
-    (RegionName.granny_island, RegionName.se_house_island): [[ItemName.air_dash, ItemName.climb, ItemName.double_dash_refill]],
-    
-    (RegionName.highway_island, RegionName.granny_island): [[ItemName.traffic_block], [ItemName.air_dash, ItemName.dash_refill]],
-    (RegionName.highway_island, RegionName.ne_feathers_island): [[ItemName.feather]],
-    (RegionName.highway_island, RegionName.nw_girders_island): [[ItemName.cannot_access]],
-    
-    (RegionName.nw_girders_island, RegionName.highway_island): [[ItemName.traffic_block]],
-    
-    (RegionName.ne_feathers_island, RegionName.highway_island): [[ItemName.feather]],
-    (RegionName.ne_feathers_island, RegionName.badeline_tower_lower): [[ItemName.feather]],
-    (RegionName.ne_feathers_island, RegionName.badeline_tower_upper): [[ItemName.climb, ItemName.air_dash, ItemName.feather]],
-    
-    (RegionName.se_house_island, RegionName.granny_island): [[ItemName.air_dash, ItemName.traffic_block, ItemName.double_dash_refill]],
-    (RegionName.se_house_island, RegionName.badeline_tower_lower): [[ItemName.air_dash, ItemName.double_dash_refill]],
-    
-    (RegionName.badeline_tower_lower, RegionName.se_house_island): [[ItemName.cannot_access]],
-    (RegionName.badeline_tower_lower, RegionName.ne_feathers_island): [[ItemName.air_dash, ItemName.breakables, ItemName.feather]],
-    (RegionName.badeline_tower_lower, RegionName.granny_island): [[ItemName.cannot_access]],
-    (RegionName.badeline_tower_lower, RegionName.badeline_tower_upper): [[ItemName.cannot_access]],
-    
-    (RegionName.badeline_tower_upper, RegionName.badeline_island): [[ItemName.air_dash, ItemName.climb, ItemName.double_dash_refill, ItemName.feather, ItemName.traffic_block, ItemName.breakables]],
-    (RegionName.badeline_tower_upper, RegionName.se_house_island): [[ItemName.air_dash], [ItemName.ground_dash]],
-    (RegionName.badeline_tower_upper, RegionName.ne_feathers_island): [[ItemName.air_dash], [ItemName.ground_dash]],
-    (RegionName.badeline_tower_upper, RegionName.granny_island): [[ItemName.dash_refill]],
-    
-    (RegionName.badeline_island, RegionName.badeline_tower_upper): [[ItemName.air_dash], [ItemName.ground_dash]],
-}
-
-region_hard_moves_logic: Dict[Tuple[str], List[List[str]]] = {
-    (RegionName.forsaken_city, RegionName.granny_island):        [[ItemName.checkpoint_2], [ItemName.checkpoint_3], [ItemName.checkpoint_4]],
-    (RegionName.forsaken_city, RegionName.highway_island):       [[ItemName.checkpoint_5], [ItemName.checkpoint_6]],
-    (RegionName.forsaken_city, RegionName.ne_feathers_island):   [[ItemName.checkpoint_7]],
-    (RegionName.forsaken_city, RegionName.se_house_island):      [[ItemName.checkpoint_8]],
-    (RegionName.forsaken_city, RegionName.badeline_tower_upper): [[ItemName.checkpoint_9]],
-    (RegionName.forsaken_city, RegionName.badeline_island):      [[ItemName.checkpoint_10]],
-
-    (RegionName.granny_island, RegionName.nw_girders_island): [[ItemName.traffic_block]],
-    (RegionName.granny_island, RegionName.badeline_tower_lower): [[ItemName.air_dash], [ItemName.ground_dash]],
-    (RegionName.granny_island, RegionName.se_house_island): [[ItemName.air_dash, ItemName.double_dash_refill], [ItemName.ground_dash]],
-    
-    (RegionName.highway_island, RegionName.nw_girders_island): [[ItemName.air_dash, ItemName.ground_dash]],
-    
-    (RegionName.nw_girders_island, RegionName.highway_island): [[ItemName.traffic_block], [ItemName.air_dash, ItemName.ground_dash]],
-    
-    (RegionName.ne_feathers_island, RegionName.highway_island): [[ItemName.feather], [ItemName.air_dash], [ItemName.ground_dash], [ItemName.skid_jump]],
-    (RegionName.ne_feathers_island, RegionName.badeline_tower_lower): [[ItemName.feather], [ItemName.air_dash], [ItemName.ground_dash]],
-    (RegionName.ne_feathers_island, RegionName.badeline_tower_upper): [[ItemName.feather]],
-    
-    (RegionName.se_house_island, RegionName.granny_island): [[ItemName.traffic_block]],
-    (RegionName.se_house_island, RegionName.badeline_tower_lower): [[ItemName.air_dash], [ItemName.ground_dash]],
-    
-    (RegionName.badeline_tower_upper, RegionName.badeline_island): [[ItemName.air_dash, ItemName.climb, ItemName.feather, ItemName.traffic_block],
-                                                                    [ItemName.air_dash, ItemName.climb, ItemName.feather, ItemName.skid_jump],
-                                                                    [ItemName.air_dash, ItemName.climb, ItemName.ground_dash, ItemName.traffic_block],
-                                                                    [ItemName.air_dash, ItemName.climb, ItemName.ground_dash, ItemName.skid_jump]],
-
-    (RegionName.badeline_island, RegionName.badeline_tower_upper): [[ItemName.air_dash], [ItemName.ground_dash]],
-}
-
 
 def location_rule(state: CollectionState, world: Celeste64World, loc: str) -> bool:
     if loc not in world.active_logic_mapping:
