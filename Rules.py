@@ -3,7 +3,7 @@ from typing import Dict, List, Tuple, Callable
 from BaseClasses import CollectionState, Region
 from worlds.generic.Rules import set_rule
 
-from . import Celeste64World
+from . import AstronautilusWorld
 from .Names import ItemName, LocationName, RegionName
 
 
@@ -69,7 +69,7 @@ location_logic: Dict[str, List[List[str]]] = {
     LocationName.shop5_item8: [[ItemName.shopdiscount5]],
 }
 
-def location_rule(state: CollectionState, world: Celeste64World, loc: str) -> bool:
+def location_rule(state: CollectionState, world: AstronautilusWorld, loc: str) -> bool:
     if loc not in world.active_logic_mapping:
         return True
 
@@ -79,7 +79,7 @@ def location_rule(state: CollectionState, world: Celeste64World, loc: str) -> bo
 
     return False
 
-def region_connection_rule(state: CollectionState, world: Celeste64World, region_connection: Tuple[str]) -> bool:
+def region_connection_rule(state: CollectionState, world: AstronautilusWorld, region_connection: Tuple[str]) -> bool:
     if region_connection not in world.active_region_logic_mapping:
         return True
 
@@ -89,14 +89,14 @@ def region_connection_rule(state: CollectionState, world: Celeste64World, region
 
     return False
 
-def goal_rule(state: CollectionState, world: Celeste64World) -> bool:
+def goal_rule(state: CollectionState, world: AstronautilusWorld) -> bool:
     if not state.has(ItemName.strawberry, world.player, world.strawberries_required):
         return False
 
     goal_region: Region = world.multiworld.get_region(RegionName.badeline_island, world.player)
     return state.can_reach(goal_region)
 
-def connect_region(world: Celeste64World, region: Region, dest_regions: List[str]):
+def connect_region(world: AstronautilusWorld, region: Region, dest_regions: List[str]):
     rules: Dict[str, Callable[[CollectionState], bool]] = {}
 
     for dest_region in dest_regions:
