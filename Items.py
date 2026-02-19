@@ -18,15 +18,15 @@ class AstronautilusItemData(NamedTuple):
 
 collectable_item_data_table: Dict[str, AstronautilusItemData] = {
     ItemName.shop_item: AstronautilusItemData(astronautilus_base_id + 0x0, ItemClassification.progression_skip_balancing),
-    ItemName.raspberry:  AstronautilusItemData(astronautilus_base_id + 0x9, ItemClassification.filler),
+    ItemName.pearl:  AstronautilusItemData(astronautilus_base_id + 0x9, ItemClassification.filler),
 }
 
-unlockable_item_data_table: Dict[str, AstronautilusItemData] = {
-    ItemName.dash_refill:        AstronautilusItemData(astronautilus_base_id + 0x1, ItemClassification.progression),
-    ItemName.double_dash_refill: AstronautilusItemData(astronautilus_base_id + 0x2, ItemClassification.progression),
-    ItemName.feather:            AstronautilusItemData(astronautilus_base_id + 0x3, ItemClassification.progression),
-    ItemName.coin:               AstronautilusItemData(astronautilus_base_id + 0x4, ItemClassification.progression),
-    ItemName.cassette:           AstronautilusItemData(astronautilus_base_id + 0x5, ItemClassification.progression),
+achievement_item_data_table: Dict[str, AstronautilusItemData] = {
+    ItemName.shopdiscount1:         AstronautilusItemData(astronautilus_base_id + 0x1, ItemClassification.progression),
+    ItemName.shopdiscount2:         AstronautilusItemData(astronautilus_base_id + 0x2, ItemClassification.progression),
+    ItemName.shopdiscount3:         AstronautilusItemData(astronautilus_base_id + 0x3, ItemClassification.progression),
+    ItemName.shopdiscount4:         AstronautilusItemData(astronautilus_base_id + 0x4, ItemClassification.progression),
+    ItemName.shopdiscount5:         AstronautilusItemData(astronautilus_base_id + 0x5, ItemClassification.progression),
     ItemName.traffic_block:      AstronautilusItemData(astronautilus_base_id + 0x6, ItemClassification.progression),
     ItemName.spring:             AstronautilusItemData(astronautilus_base_id + 0x7, ItemClassification.progression),
     ItemName.breakables:         AstronautilusItemData(astronautilus_base_id + 0x8, ItemClassification.progression),
