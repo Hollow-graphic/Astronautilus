@@ -14,74 +14,14 @@ class DeathLinkAmnesty(Range):
     range_end = 5
     default = 1
 
-class TotalStrawberries(Range):
+class Auto-release(bool):
     """
-    How many Strawberries exist
+    Does Auto-release when finish the game
     """
-    display_name = "Total Strawberries"
-    range_start = 0
-    range_end = 55
-    default = 20
-
-class StrawberriesRequiredPercentage(Range):
-    """
-    Percentage of existing Strawberries you must receive to finish
-    """
-    display_name = "Strawberries Required Percentage"
-    range_start = 0
-    range_end = 100
-    default = 80
-
-
-class LogicDifficulty(Choice):
-    """
-    Whether the logic expects you to play the intended way, or to be able to use advanced tricks and skips
-    """
-    display_name = "Logic Difficulty"
-    option_standard = 0
-    option_hard = 1
-    default = 0
-
-class MoveShuffle(Toggle):
-    """
-    Whether the following base movement abilities are shuffled into the item pool:
-    - Ground Dash
-    - Air Dash
-    - Skid Jump
-    - Climb
-
-    NOTE: Having Move Shuffle and Standard Logic Difficulty will guarantee that one of the four Move items will be immediately accessible
-
-    WARNING: Combining Move Shuffle and Hard Logic Difficulty can require very difficult tricks
-    """
-    display_name = "Move Shuffle"
-
-
-class Friendsanity(Toggle):
-    """
-    Whether chatting with your friends grants location checks
-    """
-    display_name = "Friendsanity"
-
-class Signsanity(Toggle):
-    """
-    Whether reading signs grants location checks
-    """
-    display_name = "Signsanity"
-
-class Carsanity(Toggle):
-    """
-    Whether riding on cars grants location checks
-    """
-    display_name = "Carsanity"
-
-class Checkpointsanity(Toggle):
-    """
-    Whether activating Checkpoints grants location checks
-
-    Activating this will also shuffle items into the pool which allow usage and warping to each Checkpoint
-    """
-    display_name = "Checkpointsanity"
+    display_name = "Death Link Amnesty"
+    range_start = 1
+    range_end = 5
+    default = 1
 
 
 class ColorChoice(TextChoice):
@@ -199,7 +139,7 @@ class BadelineChaserSpeed(Range):
     default = 3
 
 
-celeste_64_option_groups = [
+astronautilus_option_groups = [
     OptionGroup("Goal Options", [
         TotalStrawberries,
         StrawberriesRequiredPercentage,
