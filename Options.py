@@ -14,7 +14,7 @@ class DeathLinkAmnesty(Range):
     range_end = 5
     default = 1
 
-class Auto-release(choice):
+class Auto_release(choice):
     """
     Does Auto-release when finishing the game
     """
@@ -37,7 +37,7 @@ class Celeste64Options(PerGameCommonOptions):
     death_link: DeathLink
     death_link_amnesty: DeathLinkAmnesty
 
-    auto_release: Auto-release
+    auto_release: Auto_release
 
 
 def resolve_options(world: World):

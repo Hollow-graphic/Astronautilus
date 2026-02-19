@@ -3,13 +3,13 @@ from typing import Dict, List, Tuple
 
 from BaseClasses import ItemClassification, Location, Region, Tutorial
 from worlds.AutoWorld import WebWorld, World
-from .Items import Celeste64Item, unlockable_item_data_table, move_item_data_table, item_data_table,\
+from .Items import AstronautilusItem, unlockable_item_data_table, move_item_data_table, item_data_table,\
                                   checkpoint_item_data_table, item_table
-from .Locations import Celeste64Location, strawberry_location_data_table, friend_location_data_table,\
+from .Locations import AstronautilusLocation, strawberry_location_data_table, friend_location_data_table,\
                                           sign_location_data_table, car_location_data_table, checkpoint_location_data_table,\
                                           location_table
 from .Names import ItemName, LocationName
-from .Options import Celeste64Options, celeste_64_option_groups, resolve_options
+from .Options import AstronautilusOptions, astronautilus_option_groups, resolve_options
 
 
 class AstronautilusWebWorld(WebWorld):
@@ -17,11 +17,11 @@ class AstronautilusWebWorld(WebWorld):
 
     setup_en = Tutorial(
         tutorial_name="Start Guide",
-        description="A guide to playing Celeste 64 in Archipelago.",
+        description="A guide to playing Astronautilus in Archipelago.",
         language="English",
         file_name="guide_en.md",
         link="guide/en",
-        authors=["PoryGone"]
+        authors=["Hollow-grahic"]
     )
 
     tutorials = [setup_en]
@@ -30,8 +30,7 @@ class AstronautilusWebWorld(WebWorld):
 
 
 class AstronautilusWorld(World):
-    """Relive the magic of Celeste Mountain alongside Madeline in this small, heartfelt 3D platformer.
-    Created in a week(ish) by the Celeste team to celebrate the game’s sixth anniversary 🍓✨"""
+    """temp description"""
 
     # Class Data
     game = "Astronautilus"
@@ -70,16 +69,7 @@ class AstronautilusWorld(World):
     def create_items(self) -> None:
         item_pool: List[AstronautilusItem] = []
 
-        location_count: int = 30
-
-        if self.options.friendsanity:
-            location_count += 9
-
-        if self.options.signsanity:
-            location_count += 5
-
-        if self.options.carsanity:
-            location_count += 2
+        location_count: int = 45
 
         item_pool += [self.create_item(name)
                       for name in unlockable_item_data_table.keys()
@@ -153,30 +143,30 @@ class AstronautilusWorld(World):
             region.add_locations({
                 location_name: location_data.address for location_name, location_data in strawberry_location_data_table.items()
                 if location_data.region == region_name
-            }, Celeste64Location)
+            }, AstronautilusLocation)
 
             if self.options.friendsanity:
                 region.add_locations({
                     location_name: location_data.address for location_name, location_data in friend_location_data_table.items()
                     if location_data.region == region_name
-                }, Celeste64Location)
+                }, AstronautilusLocation)
 
             if self.options.signsanity:
                 region.add_locations({
                     location_name: location_data.address for location_name, location_data in sign_location_data_table.items()
                     if location_data.region == region_name
-                }, Celeste64Location)
+                }, AstronautilusLocation)
 
             if self.options.carsanity:
                 region.add_locations({
                     location_name: location_data.address for location_name, location_data in car_location_data_table.items()
                     if location_data.region == region_name
-                }, Celeste64Location)
+                }, AstronautilusLocation)
 
             region.add_locations({
                 location_name: location_data.address for location_name, location_data in checkpoint_location_data_table.items()
                 if location_data.region == region_name
-            }, Celeste64Location)
+            }, AstronautilusLocation)
 
             from .Rules import connect_region
             connect_region(self, region, region_data_table[region_name].connecting_regions)
@@ -194,17 +184,4 @@ class AstronautilusWorld(World):
         return {
             "death_link": self.options.death_link.value,
             "death_link_amnesty": self.options.death_link_amnesty.value,
-            "strawberries_required": self.strawberries_required,
-            "move_shuffle": self.options.move_shuffle.value,
-            "friendsanity": self.options.friendsanity.value,
-            "signsanity": self.options.signsanity.value,
-            "carsanity": self.options.carsanity.value,
-            "checkpointsanity": self.options.checkpointsanity.value,
-            "madeline_one_dash_hair_color": self.madeline_one_dash_hair_color,
-            "madeline_two_dash_hair_color": self.madeline_two_dash_hair_color,
-            "madeline_no_dash_hair_color": self.madeline_no_dash_hair_color,
-            "madeline_feather_hair_color": self.madeline_feather_hair_color,
-            "badeline_chaser_source": self.options.badeline_chaser_source.value,
-            "badeline_chaser_frequency": self.options.badeline_chaser_frequency.value,
-            "badeline_chaser_speed": self.options.badeline_chaser_speed.value,
         }
