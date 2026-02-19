@@ -7,9 +7,9 @@ class Astronautilus(NamedTuple):
 
 
 region_data_table: Dict[str, Astronautilus] = {
-    "Menu": Astronautilus([RegionName.forsaken_city]),
+    "Menu": Astronautilus([RegionName.Wolrd]),
 
-    RegionName.forsaken_city: Astronautilus([RegionName.level_1, RegionName.level_2, RegionName.level_3, RegionName.level_4, RegionName.level_5]),
+    RegionName.Wolrd: Astronautilus([RegionName.level_1, RegionName.level_2, RegionName.level_3, RegionName.level_4, RegionName.level_5]),
 
     RegionName.level_1:              Astronautilus([RegionName.shop_1]),
     RegionName.level_2:              Astronautilus([RegionName.shop_2]),
