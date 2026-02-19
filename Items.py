@@ -4,14 +4,14 @@ from BaseClasses import Item, ItemClassification
 from .Names import ItemName
 
 
-celeste_64_base_id: int = 0xCA0000
+astronautilus_base_id: int = 0xCA0000
 
 
-class Celeste64Item(Item):
-    game = "Celeste 64"
+class AstronautilusItem(Item):
+    game = "Astronautilus"
 
 
-class Celeste64ItemData(NamedTuple):
+class AstronautilusItemData(NamedTuple):
     code: Optional[int] = None
     type: ItemClassification = ItemClassification.filler
 
