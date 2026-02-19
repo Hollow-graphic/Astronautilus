@@ -16,7 +16,7 @@ class AstronautilusLocationData(NamedTuple):
     address: Optional[int] = None
 
 
-strawberry_location_data_table: Dict[str, AstronautilusLocationData] = {
+shop_item_location_data_table: Dict[str, AstronautilusLocationData] = {
     LocationName.shop1_item1:  AstronautilusLocationData(RegionName.shop_1,        astronautilus_base_id + 0x00),
     LocationName.shop1_item2:  AstronautilusLocationData(RegionName.shop_1,        astronautilus_base_id + 0x01),
     LocationName.shop1_item3:  AstronautilusLocationData(RegionName.shop_1,        astronautilus_base_id + 0x02),
@@ -61,10 +61,7 @@ world_location_data_table: Dict[str, AstronautilusLocationData] = {
     LocationName.world_5:  AstronautilusLocationData(RegionName.world_5,    astronautilus_base_id + 0x400 + 0x04),
 }
 
-location_data_table: Dict[str, AstronautilusLocationData] = {**strawberry_location_data_table,
-                                                         **friend_location_data_table,
-                                                         **sign_location_data_table,
-                                                         **car_location_data_table,
-                                                         **checkpoint_location_data_table}
+location_data_table: Dict[str, AstronautilusLocationData] = {**shop_item_location_data_table,
+                                                         **world_location_data_table}
 
 location_table = {name: data.address for name, data in location_data_table.items() if data.address is not None}
