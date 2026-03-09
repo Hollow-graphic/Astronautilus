@@ -4,7 +4,7 @@ from typing import Dict, List, Tuple
 from BaseClasses import ItemClassification, Location, Region, Tutorial
 from worlds.AutoWorld import WebWorld, World
 from .Items import AstronautilusItem, unlockable_item_data_table, move_item_data_table, item_data_table,\
-                                  checkpoint_item_data_table, item_table
+                                  checkpoint_item_data_table, discount_item_data_table, item_table
 from .Locations import AstronautilusLocation, strawberry_location_data_table, friend_location_data_table,\
                                           sign_location_data_table, car_location_data_table, checkpoint_location_data_table,\
                                           location_table
@@ -119,6 +119,10 @@ class AstronautilusWorld(World):
                 checkpoint_loc: Location = self.multiworld.get_location(item_name, self.player)
                 checkpoint_loc.place_locked_item(self.create_item(item_name))
 
+        for item_name in discount_item_data_table.keys():
+                discount_loc: Location = self.multiworld.get_location(item_name, self.player)
+                discount_loc.place_locked_item(self.create_item(item_name))
+
         real_total_strawberries: int = min(self.options.total_strawberries.value, location_count - len(item_pool))
         self.strawberries_required = int(real_total_strawberries * (self.options.strawberries_required_percentage / 100))
 
@@ -140,6 +144,7 @@ class AstronautilusWorld(World):
         # Create locations.
         for region_name, region_data in region_data_table.items():
             region = self.multiworld.get_region(region_name, self.player)
+            
             region.add_locations({
                 location_name: location_data.address for location_name, location_data in strawberry_location_data_table.items()
                 if location_data.region == region_name
